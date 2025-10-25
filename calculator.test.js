@@ -19,3 +19,31 @@ test('divides two numbers', () => {
 test('throws error when dividing by zero', () => {
     expect(() => calculator.divide(5, 0)).toThrow('Cannot divide by zero');
 });
+
+const { modulus } = require('./calculator');
+
+test('modulus of two positive numbers', () => {
+    expect(modulus(10, 3)).toBe(1);
+});
+
+test('modulus when dividend is smaller than divisor', () => {
+    expect(modulus(2, 5)).toBe(2);
+});
+
+test('modulus with zero dividend', () => {
+    expect(modulus(0, 5)).toBe(0);
+});
+
+test('modulus with negative numbers', () => {
+    expect(modulus(-10, 3)).toBe(-1);
+    expect(modulus(10, -3)).toBe(1);
+    expect(modulus(-10, -3)).toBe(-1);
+});
+
+test('modulus by 1', () => {
+    expect(modulus(7, 1)).toBe(0);
+});
+
+
+
+
